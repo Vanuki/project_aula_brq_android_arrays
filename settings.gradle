@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "project_aula_brq_android_arrays"
