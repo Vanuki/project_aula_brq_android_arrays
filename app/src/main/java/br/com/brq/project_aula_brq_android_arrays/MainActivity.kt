@@ -1,7 +1,9 @@
 package br.com.brq.project_aula_brq_android_arrays
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brq.project_aula_brq_android_arrays.model.Pessoa
@@ -31,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         arrayDePessoas.add(Pessoa("Rodolfo", 25, R.drawable.ic_android))
         arrayDePessoas.add(Pessoa("Sharanore", 66, R.drawable.ic_helmet))
         arrayDePessoas.add(Pessoa("Shuraste", 79, R.drawable.ic_airplane))
-
-
+    }
+    fun onClickItem(visao:View, index:Int){
+        val intent = Intent(this, DetalhesActivity::class.java)
     }
 
 }
