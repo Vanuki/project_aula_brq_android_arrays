@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.brq.project_aula_brq_android_arrays.model.Pessoa
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var recycler: RecyclerView
-    lateinit var arrayDeAnimais: ArrayList<String>
+    lateinit var arrayDePessoas: ArrayList<Pessoa>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         carregarElementos()
         carregarArray()
 
-        recycler.adapter = Adapter(this, arrayDeAnimais)
+        recycler.adapter = Adapter(this, arrayDePessoas)
         recycler.layoutManager = LinearLayoutManager(this)
 
     }
@@ -26,10 +27,12 @@ class MainActivity : AppCompatActivity() {
         recycler = findViewById(R.id.reciclador)
     }
     fun carregarArray(){
-        arrayDeAnimais = ArrayList()
-        arrayDeAnimais.add("Cachorro")
-        arrayDeAnimais.add("Gato")
-        arrayDeAnimais.add("Camelo")
+        arrayDePessoas = ArrayList()
+        arrayDePessoas.add(Pessoa("Rodolfo", 25, R.drawable.ic_android))
+        arrayDePessoas.add(Pessoa("Sharanore", 66, R.drawable.ic_helmet))
+        arrayDePessoas.add(Pessoa("Shuraste", 79, R.drawable.ic_airplane))
+
+
     }
 
 }
