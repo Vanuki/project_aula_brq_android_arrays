@@ -13,10 +13,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         carregarElementos()
+        carregarArray()
+
 
     }
 
     fun carregarElementos(){
         recycler = findViewById(R.id.reciclador)
     }
+    fun carregarArray(){
+        var arrayDeAnimais: ArrayList<String> = ArrayList()
+        arrayDeAnimais.add("Cachorro")
+        arrayDeAnimais.add("Gato")
+        arrayDeAnimais.add("Camelo")
+    }
+
 }
