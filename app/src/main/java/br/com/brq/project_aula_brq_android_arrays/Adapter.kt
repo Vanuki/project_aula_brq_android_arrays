@@ -18,7 +18,7 @@ class Adapter(val contexto: Context, val listaDePessoas: ArrayList<Pessoa>) : Re
     }
 
     override fun onBindViewHolder(holder: SuporteDeVisaoPessoas, position: Int) {
-        listaDePessoas.get(position).also{
+        listaDePessoas[position].also{
             holder.item1.text = "${it.nome}"
             holder.item2.text = "Idade: ${it.idade}"
             holder.imagem.setImageResource(it.photo)
