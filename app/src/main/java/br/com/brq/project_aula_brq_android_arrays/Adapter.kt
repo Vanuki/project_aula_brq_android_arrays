@@ -19,7 +19,8 @@ class Adapter(val contexto: Context, val listaDePessoas: ArrayList<Pessoa>) : Re
 
     override fun onBindViewHolder(holder: SuporteDeVisaoPessoas, position: Int) {
         listaDePessoas.get(position).also{
-            holder.titulo.text = "${it.nome} / Idade: ${it.idade}"
+            holder.item1.text = "${it.nome}"
+            holder.item2.text = "Idade: ${it.idade}"
             holder.imagem.setImageResource(it.photo)
         }
     }
@@ -32,11 +33,13 @@ class Adapter(val contexto: Context, val listaDePessoas: ArrayList<Pessoa>) : Re
 
 class SuporteDeVisaoPessoas(visaoDeItem:View) : RecyclerView.ViewHolder(visaoDeItem){
 
-    var titulo:TextView
+    var item1:TextView
+    var item2:TextView
     var imagem:ImageView
 
     init {
-        titulo = itemView.findViewById(R.id.item)
-        imagem = itemView.findViewById(R.id.android_image)
+        item1 = itemView.findViewById(R.id.item1)
+        item2 = itemView.findViewById(R.id.item2)
+        imagem = itemView.findViewById(R.id.image)
     }
 }
