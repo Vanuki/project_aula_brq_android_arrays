@@ -2,11 +2,13 @@ package br.com.brq.project_aula_brq_android_arrays
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var recycler: RecyclerView
+    lateinit var arrayDeAnimais: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         carregarElementos()
         carregarArray()
 
+        recycler.adapter = Adapter(this, arrayDeAnimais)
+        recycler.layoutManager = LinearLayoutManager(this)
 
     }
 
@@ -22,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         recycler = findViewById(R.id.reciclador)
     }
     fun carregarArray(){
-        var arrayDeAnimais: ArrayList<String> = ArrayList()
+        arrayDeAnimais = ArrayList()
         arrayDeAnimais.add("Cachorro")
         arrayDeAnimais.add("Gato")
         arrayDeAnimais.add("Camelo")

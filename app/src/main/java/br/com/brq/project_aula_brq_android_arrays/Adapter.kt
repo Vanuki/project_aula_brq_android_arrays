@@ -4,18 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(val contexto: Context, val listaDeAnimais: ArrayList<String>) : RecyclerView.Adapter<SuporteDeVisaoProduto>(){
+class Adapter(val contexto: Context, val listaDeAnimais: ArrayList<String>) : RecyclerView.Adapter<SuporteDeVisaoAnimais>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteDeVisaoProduto {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteDeVisaoAnimais {
         val inflador:LayoutInflater = LayoutInflater.from(contexto)
         val visao:View = inflador.inflate(R.layout.item_da_lista, parent, false)
-        return SuporteDeVisaoProduto(visao)
+        return SuporteDeVisaoAnimais(visao)
     }
 
-    override fun onBindViewHolder(holder: SuporteDeVisaoProduto, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: SuporteDeVisaoAnimais, position: Int) {
+        holder.titulo.text = listaDeAnimais[position]
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +25,11 @@ class Adapter(val contexto: Context, val listaDeAnimais: ArrayList<String>) : Re
 }
 
 
+class SuporteDeVisaoAnimais(visaoDeItem:View) : RecyclerView.ViewHolder(visaoDeItem){
 
-class SuporteDeVisaoProduto(visaoDeItem:View) : RecyclerView.ViewHolder(visaoDeItem){
+    var titulo:TextView
 
+    init {
+        titulo = itemView.findViewById(R.id.item)
+    }
 }
