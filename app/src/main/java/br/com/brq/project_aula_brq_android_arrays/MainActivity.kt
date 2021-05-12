@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brq.project_aula_brq_android_arrays.model.Pessoa
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SuporteDeVisaoPessoas.ItemClickListener {
 
     var recycler: RecyclerView? = null
     var fabButton: View? = null
     lateinit var arrayDePessoas: ArrayList<Pessoa>
     var adapter: Adapter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +46,15 @@ class MainActivity : AppCompatActivity() {
         arrayDePessoas.add(Pessoa("Sharanore", 66, R.drawable.ic_helmet,"M"))
         arrayDePessoas.add(Pessoa("Shuraste", 79, R.drawable.ic_airplane,"M"))
     }
-    fun onClickItem(visao:View, index:Int){
+
+    override fun onClickItem(view: View?, index: Int) {
         val intent = Intent(this, DetalhesActivity::class.java)
         intent.putExtra("parametro_nome", arrayDePessoas[index].nome)
         intent.putExtra("parametro_objeto", arrayDePessoas[index])
         startActivity(intent)
     }
-    fun onLongClickItem(view: View?, index: Int) {
+
+    override fun onLongClickItem(view: View?, index: Int) {
         adapter?.removeItem(index)
     }
 }

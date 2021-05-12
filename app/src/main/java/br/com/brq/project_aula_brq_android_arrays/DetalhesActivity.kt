@@ -14,7 +14,7 @@ class DetalhesActivity : AppCompatActivity() {
         val nossoNomeEnviadoPorParametro = intent.getStringExtra("parametro_nome")
         val nossoObjetoPessoa : Pessoa = intent.getSerializableExtra("parametro_objeto") as Pessoa
 
-        val textViewTitle = findViewById<TextView>(R.id.textView_titulo)
+        val textViewTitle = findViewById<TextView>(R.id.mensagem)
 
         textViewTitle.text = "${nossoObjetoPessoa.nome} - ${nossoObjetoPessoa.idade}"
     }
